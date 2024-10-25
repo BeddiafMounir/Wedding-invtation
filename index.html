@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invitation de Mariage</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f9f9f9;
+        color: #333;
+        overflow-x: hidden;
+      }
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1;
+      }
+      h1 {
+        color: #b95f89;
+      }
+      .details {
+        margin: 20px 0;
+      }
+      .rsvp,
+      .copy-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #b95f89;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        cursor: pointer;
+      }
+      .rsvp:hover,
+      .copy-btn:hover {
+        background-color: #9e4d72;
+      }
+      .gmap-link {
+        display: inline-block;
+        font-size: 18px;
+        margin: 20px 0;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+      }
+      .gmap-link:hover {
+        transform: scale(1.1);
+        background-color: #f7e1ea;
+        color: #b95f89;
+      }
+      /* Animation festive (confettis) */
+      .confetti {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        background-color: #ffcc00;
+        border-radius: 50%;
+        animation: fall 2s infinite ease-in-out;
+        opacity: 0.8;
+        z-index: 0;
+      }
+      .confetti:nth-child(2) {
+        background-color: #ff66cc;
+        animation-delay: 0.3s;
+      }
+      .confetti:nth-child(3) {
+        background-color: #66ff99;
+        animation-delay: 0.6s;
+      }
+      @keyframes fall {
+        0% {
+          top: -20px;
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(50px);
+        }
+        100% {
+          top: 100vh;
+          transform: translateX(-50px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Confetti animation elements -->
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+
+    <div class="container">
+      <h1>راكم معروضين لعرسي ! Vous êtes invités au mariage de Mounir !</h1>
+      <p>يشرفنا دعوتكم لحضور حفل زفافنا.</p>
+      <p>
+        Nous avons l'immense plaisir de vous convier à la célébration de notre
+        union.
+      </p>
+
+      <div class="details">
+        <p>
+          <strong>Date :</strong> 15 novembre 2024 (à partir de 18h jusqu'à 21h)
+        </p>
+        <p>من الساعة السادسة مسآءا إلى الساعة التاسعة ليلا</p>
+        <p><strong>Lieu :</strong> قاعة البركة, باش جراح</p>
+        <a
+          href="https://maps.app.goo.gl/V5uKW1tnQ5aprdKB7"
+          target="_blank"
+          class="gmap-link"
+        >
+          >> Voir l'emplacement sur Google Maps <<
+        </a>
+
+        <p>يشرفنا حضوركم و مشاركتكم معنا هذا اليوم الذي لا ينسى.</p>
+        <p>
+          Nous serions honorés de votre présence pour partager ce moment
+          inoubliable.
+        </p>
+
+        <a href="tel:0672884075" class="rsvp">
+          لمعلومات أكثر اتصلوا ب 0672884075</a
+        >
+        <button class="copy-btn" onclick="copyPhoneNumber()">
+          Copier le numéro
+        </button>
+        <p>(ممنوع التصوير في قاعة النساء)</p>
+        <p>(La photographie est interdite dans la salle des femmes)</p>
+      </div>
+    </div>
+
+    <!-- Script for confetti generation and copying phone number -->
+    <script>
+      // Optional: Add more confetti dynamically
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        document.body.appendChild(confetti);
+        confetti.style.left = `${Math.random() * 100}vw`;
+        confetti.style.animationDuration = `${Math.random() * 2 + 1}s`;
+      }
+
+      // Function to copy the phone number and change the button text
+      function copyPhoneNumber() {
+        const phoneNumber = "0672884075";
+        navigator.clipboard.writeText(phoneNumber).then(() => {
+          const copyButton = document.querySelector(".copy-btn");
+          copyButton.textContent = "Copié";
+        });
+      }
+    </script>
+  </body>
+</html>
